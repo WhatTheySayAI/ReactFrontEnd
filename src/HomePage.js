@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <>
       <Box m={[5, 20, 40, 80]}>
-        <Heading class="headline" size="3xl">
+        <Heading className="headline" size="3xl">
           What
           <br></br>
           Teachers
@@ -43,20 +43,20 @@ function HomePage() {
 
         <Center>
         <Box height = "150px">
-          <Image class="slide-1" src="/childFour.png" />
-          <Image class="slide-2" src="/childOne.png" />
-          <Image class="slide-3" src="/childThree.png" />
-          <Image class="slide-4" src="/childTwo.png" />
+          <Image className="slide-1" src="/childFour.png" />
+          <Image className="slide-2" src="/childOne.png" />
+          <Image className="slide-3" src="/childThree.png" />
+          <Image className="slide-4" src="/childTwo.png" />
         </Box>
         </Center>
 
         
 
-        <Heading class="textHeader" size="lg">
+        <Heading className="textHeader" size="lg">
           Want to remember everything in your next lesson?
         </Heading>
 
-        <Text class="textBody">
+        <Text className="textBody">
           So often in our music lessons we forget key points in our music
           lesson. We get transfixed in the moment, thinking about new
           information from the teacher. Our solution automatically transcribes
@@ -67,7 +67,7 @@ function HomePage() {
         <Center>
           <Link to="/lesson">
             <Button whiteSpace="normal">
-              <Text class="button">
+              <Text className="button">
                 Ready to Rock and Roll?🎸
               </Text>
             </Button>

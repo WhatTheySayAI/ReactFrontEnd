@@ -4,7 +4,7 @@ import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from 
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: CSS
-export const EmailPage = () => {
+export const EmailPage = ({transcript, notes, finalThoughts}) => {
   const form = useRef();
   const [userEmail, setUserEmail] = useState("");
 
@@ -35,12 +35,6 @@ export const EmailPage = () => {
     return `${day}, ${month} ${date}, ${year}`
   };
 
-  const transcript = "This is wat duh tichuh sai"; // TODO Get from state
-  
-  const to_work_on = "This is wat u should work on"; // TODO Get from state
-  
-  const final_thoughts = "These are your final thoughts"; // TODO Get from state
-  
   return (
     
     <Flex h='50vh' flexDirection={'column'}>
@@ -68,8 +62,8 @@ export const EmailPage = () => {
         <input type="email" name="user_email" value={userEmail}/>
         <input type="text" name="date" value={getDate()} hidden={true} />
         <textarea name="transcript" value={transcript} hidden={true} />
-        <textarea name="work_on_notes" value={to_work_on} hidden={true} />
-        <textarea name="final_thoughts" value={final_thoughts} hidden={true} />
+        <textarea name="work_on_notes" value={notes} hidden={true} />
+        <textarea name="final_thoughts" value={finalThoughts} hidden={true} />
       </form>
     </Flex>
     
