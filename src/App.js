@@ -1,5 +1,5 @@
 import './App.css';
-import { EmailPage } from './Email';
+import { EmailPage } from './email';
 
 import HomePage from './HomePage';
 import LessonPage from './LessonPage';
