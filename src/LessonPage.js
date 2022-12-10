@@ -31,8 +31,7 @@ function LessonPage({ run, isRecording, transcript, notes, setNotes }) {
           placeholder="What do you want to work on?"
           onChange={(event) => setNotes(event.target.value)}
         />
-
-        <Text>{transcript}</Text>
+        <Text>{transcript}</Text>        
 
         <Button onClick={run} borderRadius="100">
           {isRecording ? (
