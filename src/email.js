@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: CSS
+// TODO: Use Chakra form elements for display, hide html form.
 export const EmailPage = () => {
   const form = useRef();
 
@@ -33,8 +34,6 @@ export const EmailPage = () => {
     return `${day}, ${month} ${date}, ${year}`
   };
 
-  const user_email = "geordiesignups@gmail.com"; // TODO: get from state
-
   const transcript = "This is wat duh tichuh sai"; // TODO Get from state
   
   const to_work_on = "This is wat u should work on"; // TODO Get from state
@@ -44,7 +43,7 @@ export const EmailPage = () => {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <label>Email</label>
-      <input type="email" name="user_email" value={user_email} />
+      <input type="email" name="user_email" />
       <input type="text" name="date" value={getDate()} hidden={true} />
       <textarea name="transcript" value={transcript} hidden={true} />
       <textarea name="work_on_notes" value={to_work_on} hidden={true} />
