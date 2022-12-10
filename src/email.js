@@ -1,21 +1,27 @@
 import emailjs from '@emailjs/browser';
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from "@chakra-ui/react";
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: CSS
-export const EmailPage = () => {
+export const EmailPage = ({transcript, notes, finalThoughts}) => {
   const form = useRef();
   const [userEmail, setUserEmail] = useState("");
+  const [error, setError] = useState();
+
+  const navigate = useNavigate();
 
   const sendEmail = (e) => {
     e.preventDefault();
     
     emailjs.sendForm('service_ilx201i', 'template_dcxz4rm', form.current, 'me-WKzMRvMyYtNMuy')
       .then((result) => {
-          console.log(result.text);
+          if (result.text == "OK") {
+            navigate('/sent');
+          }
       }, (error) => {
-          console.log(error.text);
+          setError(error.text);
       });
   };
   
@@ -35,12 +41,6 @@ export const EmailPage = () => {
     return `${day}, ${month} ${date}, ${year}`
   };
 
-  const transcript = "This is wat duh tichuh sai"; // TODO Get from state
-  
-  const to_work_on = "This is wat u should work on"; // TODO Get from state
-  
-  const final_thoughts = "These are your final thoughts"; // TODO Get from state
-  
   return (
     
     <Flex h='50vh' flexDirection={'column'}>
@@ -53,10 +53,16 @@ export const EmailPage = () => {
 
       <Container>
         <FormLabel>Email address</FormLabel>
-        <Input 
+        {error}
+        <Input
+          isInvalid={error}
           focusBorderColor='black'
-          placeholder='Your email' 
-          onChange={(event) => setUserEmail(event.target.value)}
+          placeholder='Your email'
+          value={userEmail} 
+          onChange={(event) => {
+            setError(null);
+            setUserEmail(event.target.value);
+          }}
         />
         <Box bg='none' h='20px'/>
         <Button bg='black' color='white' onClick={sendEmail}>Send</Button>
@@ -68,8 +74,8 @@ export const EmailPage = () => {
         <input type="email" name="user_email" value={userEmail}/>
         <input type="text" name="date" value={getDate()} hidden={true} />
         <textarea name="transcript" value={transcript} hidden={true} />
-        <textarea name="work_on_notes" value={to_work_on} hidden={true} />
-        <textarea name="final_thoughts" value={final_thoughts} hidden={true} />
+        <textarea name="work_on_notes" value={notes} hidden={true} />
+        <textarea name="final_thoughts" value={finalThoughts} hidden={true} />
       </form>
     </Flex>
     
