@@ -6,9 +6,9 @@ import React, {useRef, useState} from 'react';
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: Make form elements for date, transcript, work on notes, and final thoughts hidden
 // TODO: CSS
-export const Record = () => {
+export const useTranscriber = () => {
   const [isRecording, setIsRecording] = useState(false);
-  const [message, setMessage] = useState("");
+  const [transcript, setTranscript] = useState("");
   
   const socket = useRef(null);
   const recorder = useRef(null);
@@ -17,7 +17,6 @@ export const Record = () => {
   const run = async () => {
     if (isRecording) {
       if (socket.current) {
-        console.log('CLOSING')
         socket.current.send(JSON.stringify({terminate_session: true}));
         socket.current.close();
         socket.current = null;
@@ -57,7 +56,7 @@ export const Record = () => {
             msg += ` ${texts[key]}`;
           }
         }
-        setMessage(msg.split(' ').slice(-10).join(' '));
+        setTranscript(msg.split(' ').slice(-10).join(' '));
       };
 
       socket.current.onerror =
@@ -112,15 +111,5 @@ export const Record = () => {
     setIsRecording((prevIsRecording) => !prevIsRecording);
   };
 
-  const buttonText = isRecording ? 'Stop' : 'Record';
-  const title = isRecording ? 'Click stop to end recording!' :
-                                      'Click start to begin recording!'
-
-  return (
-    <div className="real-time-interface">
-      <p id="real-time-title" className="real-time-interface__title">{title}</p>
-      <button id="button" className="real-time-interface__button" onClick={run}>{buttonText}</button>
-      <p id="message" className="real-time-interface__message">{message}</p>
-    </div>
-  );
+  return [run, isRecording, transcript];
 };
