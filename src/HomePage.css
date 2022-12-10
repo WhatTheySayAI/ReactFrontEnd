@@ -1,0 +1,54 @@
+.slide-1,.slide-2,.slide-3,.slide-4 {
+    display: block;
+    position: absolute;
+    height: 23%;
+    /* height: 100%;
+    width: 1000%; */
+}
+
+.slide-1 {
+    animation: fade1 25s infinite;
+}
+
+.slide-2 {
+    animation: fade2 25s infinite;
+}
+
+.slide-3 {
+    animation: fade3 25s infinite;
+}
+
+.slide-4 {
+    animation: fade4 25s infinite;
+}
+
+@keyframes fade1 {
+    0% {opacity: 1;}
+    25% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fade2 {
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    50% {opacity: 0;}
+    75% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+@keyframes fade3 {
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity: 1;}
+    75% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade4 {
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+}

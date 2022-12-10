@@ -1,33 +1,79 @@
-import { Heading, Text, Button } from "@chakra-ui/react";
+import "./HomePage.css";
+
+import { Box, Heading, Text, Button, Center, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+
+import { Slide } from "react-slideshow-image";
+
+const fadeImages = [
+  {
+    url: "/childFour.jpg",
+    caption: "First Slide",
+  },
+  {
+    url: "/childOne.jpg",
+    caption: "Second Slide",
+  },
+];
 
 function HomePage() {
   return (
     <>
-      <Heading class = "headline" size="3xl">
-        What
-        <br></br>
-        Teachers
-        <br></br>
-        S(AI)
-      </Heading>
+      <Box m={[5, 20, 40, 80]}>
+        <Heading class="headline" size="3xl">
+          What
+          <br></br>
+          Teachers
+          <br></br>
+          S(AI)
+        </Heading>
 
-      <Heading size="lg">
-        Want to remember everything in your next lesson?
-      </Heading>
+        {/* <Slide>
+          {fadeImages.map((fadeImage, index) => (
+            <Image height="150px" src={fadeImage.url} />
 
-      <Text>
-        So often in our music lessons we forget key points in our music lesson.
-        We get transfixed in the moment, thinking about new information from the
-        teacher. Our solution automatically transcribes everything that was said
-        during the lesson, with the opportunity for you to write down notes
-        during and after the lesson, with the option to send all this
-        information via e-mail.
-      </Text>
+            //   <div className="each-fade" key={index}>
+            //     <div className="image-container">
+            //       <img src={fadeImage.url} />
+            //     </div>
+            //     <h2>{fadeImage.caption}</h2>
+            //   </div>
+          ))}
+        </Slide> */}
 
-      <Link to="/lesson">
-        <Button>Ready to Rock and Roll?🎸</Button>
-      </Link>
+        <Center>
+        <Box height = "150px">
+          <Image class="slide-1" src="/childFour.png" />
+          <Image class="slide-2" src="/childOne.png" />
+          <Image class="slide-3" src="/childThree.png" />
+          <Image class="slide-4" src="/childTwo.png" />
+        </Box>
+        </Center>
+
+        
+
+        <Heading class="textHeader" size="lg">
+          Want to remember everything in your next lesson?
+        </Heading>
+
+        <Text class="textBody">
+          So often in our music lessons we forget key points in our music
+          lesson. We get transfixed in the moment, thinking about new
+          information from the teacher. Our solution automatically transcribes
+          everything that was said during the lesson, with the opportunity for
+          you to write down notes during and after the lesson, with the option
+          to send all this information via e-mail.
+        </Text>
+        <Center>
+          <Link to="/lesson">
+            <Button whiteSpace="normal">
+              <Text class="button">
+                Ready to Rock and Roll?🎸
+              </Text>
+            </Button>
+          </Link>
+        </Center>
+      </Box>
     </>
   );
 }
