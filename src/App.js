@@ -1,6 +1,5 @@
 import './App.css';
 import { EmailPage } from './Email';
-import { Record } from './Record';
 
 import HomePage from './HomePage';
 import LessonPage from './LessonPage';
