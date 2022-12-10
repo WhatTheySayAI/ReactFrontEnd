@@ -17,7 +17,7 @@ export const EmailPage = ({transcript, notes, finalThoughts}) => {
     
     emailjs.sendForm('service_ilx201i', 'template_dcxz4rm', form.current, 'me-WKzMRvMyYtNMuy')
       .then((result) => {
-          if (result.text == "OK") {
+          if (result.text === "OK") {
             navigate('/sent');
           }
       }, (error) => {
