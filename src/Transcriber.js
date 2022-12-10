@@ -46,7 +46,7 @@ export const useTranscriber = () => {
       // handle incoming messages to display transcription to the DOM
       const texts = {};
       socket.current.onmessage = (message) => {
-        let msg = '';
+        let msg = transcript + ' ';
         const res = JSON.parse(message.data);
         texts[res.audio_start] = res.text;
         const keys = Object.keys(texts);
@@ -56,7 +56,7 @@ export const useTranscriber = () => {
             msg += ` ${texts[key]}`;
           }
         }
-        setTranscript(msg.split(' ').slice(-10).join(' '));
+        setTranscript(msg);
       };
 
       socket.current.onerror =
