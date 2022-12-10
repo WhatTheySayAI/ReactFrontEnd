@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from "@chakra-ui/react";
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
@@ -7,15 +8,20 @@ import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from 
 export const EmailPage = ({transcript, notes, finalThoughts}) => {
   const form = useRef();
   const [userEmail, setUserEmail] = useState("");
+  const [error, setError] = useState();
+
+  const navigate = useNavigate();
 
   const sendEmail = (e) => {
     e.preventDefault();
     
     emailjs.sendForm('service_ilx201i', 'template_dcxz4rm', form.current, 'me-WKzMRvMyYtNMuy')
       .then((result) => {
-          console.log(result.text);
+          if (result.text == "OK") {
+            navigate('/sent');
+          }
       }, (error) => {
-          console.log(error.text);
+          setError(error.text);
       });
   };
   
@@ -47,10 +53,16 @@ export const EmailPage = ({transcript, notes, finalThoughts}) => {
 
       <Container>
         <FormLabel>Email address</FormLabel>
-        <Input 
+        {error}
+        <Input
+          isInvalid={error}
           focusBorderColor='black'
-          placeholder='Your email' 
-          onChange={(event) => setUserEmail(event.target.value)}
+          placeholder='Your email'
+          value={userEmail} 
+          onChange={(event) => {
+            setError(null);
+            setUserEmail(event.target.value);
+          }}
         />
         <Box bg='none' h='20px'/>
         <Button bg='black' color='white' onClick={sendEmail}>Send</Button>
