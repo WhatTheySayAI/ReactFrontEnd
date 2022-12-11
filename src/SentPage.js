@@ -1,11 +1,12 @@
 import React from 'react';
-import { Heading, Text, Container, Button } from "@chakra-ui/react";
+import { Heading, Text, Container, Button, Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 
 export default function Sent({userEmail}) {
   return (
     <Container>
+      <Box bg='none' h='5vmin'/>
       <Heading  className="headline" size="3xl">
         Email Sent!
       </Heading>

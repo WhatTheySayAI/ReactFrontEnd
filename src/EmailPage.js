@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import React, {useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from "@chakra-ui/react";
+import { Heading, Button, Input, Container, Box } from "@chakra-ui/react";
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: CSS
@@ -46,31 +46,26 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
 
   return (
     
-    <Flex h='50vh' flexDirection={'column'}>
-      <Box bg='none' h='10vmin'/>
-      <Container>
-        <Heading  className="headline" size="3xl">
-          Send Email
-        </Heading>
-      </Container>
-
-      <Spacer/>
-
-      <Container>
-        <FormLabel>Email address</FormLabel>
-        {error}
-        <Input
-          isInvalid={error}
-          placeholder='Your email'
-          value={userEmail} 
-          onChange={(event) => {
-            setError(null);
-            setUserEmail(event.target.value);
-          }}
-        />
-        <Box bg='none' h='20px'/>
-        <Button onClick={sendEmail}>Send</Button>
-      </Container>
+    <Container h='50vh' p={6}>
+      <Box bg='none' h='5vmin'/>
+      <Heading  className="headline" size="3xl">
+        Send Email
+      </Heading>
+      <Box bg='none' h='5vmin'/>
+      <Heading as='h6' size='s' mt = {1} >Email address</Heading>
+      {error}
+      <Input
+        mt = {1}
+        isInvalid={error}
+        placeholder='Your email'
+        value={userEmail} 
+        onChange={(event) => {
+          setError(null);
+          setUserEmail(event.target.value);
+        }}
+      />
+      <Box bg='none' h='20px'/>
+      <Button onClick={sendEmail}>Send</Button>
 
       {/* Hidden HTML Form Element to pass into emailjs API */}
       <form ref={form} hidden={true}>
@@ -81,7 +76,7 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
         <textarea name="work_on_notes" value={notes} hidden={true} />
         <textarea name="final_thoughts" value={finalThoughts} hidden={true} />
       </form>
-    </Flex>
+    </Container>
     
   );
 };

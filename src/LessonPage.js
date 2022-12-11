@@ -1,8 +1,8 @@
 import {
   Button,
   IconButton,
-  Container as Box,
-  VStack,
+  Container,
+  Box,
   HStack,
   Heading,
   Textarea,
@@ -26,54 +26,58 @@ function LessonPage({ run, isRecording, transcript, notes, setNotes }) {
 }, [transcript]);
 
   return (
-    <Box p={6}>
+    <Container p={6}>
+      <Box bg='none' h='5vmin'/>
       <Heading className="headline" size="3xl">
         Lesson
       </Heading>
-      <VStack direction={"column"}>
-        <Textarea
-          id='transcript'
-          disabled
-          _disabled={{
-            color: 'black'
-          }}
-          minH="unset"
-          w="100%"
-          resize="none"
-          minRows={5}
-          maxRows={5}
-          as={ResizeTextarea}
-          value={transcript}
-          placeholder="The transcript for your recording will appear here."
-        />
+      <Box bg='none' h='5vmin'/>
+      <Heading as='h6' size='s' mt = {1} >Transcript</Heading>
+      <Textarea
+        id='transcript'
+        disabled
+        _disabled={{
+          color: 'black'
+        }}
+        minH="unset"
+        w="100%"
+        resize="none"
+        minRows={5}
+        maxRows={5}
+        as={ResizeTextarea}
+        value={transcript}
+        placeholder="The transcript for your recording will appear here."
+      />
 
-        <Textarea
-          minH="unset"
-          w="100%"
-          resize="none"
-          minRows={5}
-          maxRows={5}
-          as={ResizeTextarea}
-          value={notes}
-          placeholder="What do you want to work on?"
-          onChange={(event) => setNotes(event.target.value)}
-        />
 
-        
-        <HStack align='end'>
-          <IconButton onClick={run} borderRadius="100">
-            {isRecording ? (
-              <Icon as={MdOutlinePause} />
-            ) : (
-              <Icon as={MdFiberManualRecord} color='red' />
-            )}
-          </IconButton>
-          <Link to="/summary">
-            <Button disabled={isRecording}>Finish your lesson ➡</Button>
-          </Link>
-        </HStack>
-      </VStack>
-    </Box>
+      <Box h='10px'/>
+      <Heading as='h6' size='s' mt = {1} >Notes</Heading>
+      <Textarea
+        minH="unset"
+        w="100%"
+        resize="none"
+        minRows={5}
+        maxRows={5}
+        as={ResizeTextarea}
+        value={notes}
+        placeholder="What do you want to work on?"
+        onChange={(event) => setNotes(event.target.value)}
+      />
+
+      <Box h='20px'/>
+      <HStack justifyContent='end'>
+        <IconButton onClick={run} borderRadius="100">
+          {isRecording ? (
+            <Icon as={MdOutlinePause} />
+          ) : (
+            <Icon as={MdFiberManualRecord} color='red' />
+          )}
+        </IconButton>
+        <Link to="/summary">
+          <Button disabled={isRecording}>Finish your lesson ➡</Button>
+        </Link>
+      </HStack>
+    </Container>
   );
 }
 

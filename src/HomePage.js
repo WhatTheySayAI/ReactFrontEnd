@@ -1,6 +1,6 @@
 import "./HomePage.css";
 
-import { Box, Heading, Text, Button, Center, Image } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Center, Image, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 // import { Slide } from "react-slideshow-image";
@@ -19,7 +19,8 @@ import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <>
-      <Box m={[5, 20, 40, 80]}>
+      <Container>
+        <Box bg='none' h='5vmin'/>
         <Heading className="headline" size="3xl">
           What
           <br></br>
@@ -35,7 +36,7 @@ function HomePage() {
         <Center mt={3}>
           <Link to="/lesson">
             <Button whiteSpace="normal">
-              <Text className="button">Ready to Rock and Roll?🎸</Text>
+              <Text className="button">Ready to Rock and Roll? 🎸</Text>
             </Button>
           </Link>
         </Center>
@@ -52,7 +53,7 @@ function HomePage() {
           you to write down notes during and after the lesson, with the option
           to send all this information via e-mail.
         </Text>
-      </Box>
+      </Container>
     </>
   );
 }
