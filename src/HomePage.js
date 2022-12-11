@@ -3,18 +3,18 @@ import "./HomePage.css";
 import { Box, Heading, Text, Button, Center, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-import { Slide } from "react-slideshow-image";
+// import { Slide } from "react-slideshow-image";
 
-const fadeImages = [
-  {
-    url: "/childFour.jpg",
-    caption: "First Slide",
-  },
-  {
-    url: "/childOne.jpg",
-    caption: "Second Slide",
-  },
-];
+// const fadeImages = [
+//   {
+//     url: "/childFour.jpg",
+//     caption: "First Slide",
+//   },
+//   {
+//     url: "/childOne.jpg",
+//     caption: "Second Slide",
+//   },
+// ];
 
 function HomePage() {
   return (

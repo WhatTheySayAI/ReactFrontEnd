@@ -1,7 +1,7 @@
 import RecordRTC, {StereoAudioRecorder} from 'recordrtc';
 import './reset.css'
 import './styles.css'
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: Make form elements for date, transcript, work on notes, and final thoughts hidden
@@ -28,7 +28,7 @@ export const useTranscriber = () => {
       }
     } else {
       const response =
-          await fetch('http://localhost:8000');  // get temp session token from
+          await fetch('https://whatteacherssayapi.herokuapp.com/');  // get temp session token from
                                                 // server.js (backend)
       const data = await response.json();
 

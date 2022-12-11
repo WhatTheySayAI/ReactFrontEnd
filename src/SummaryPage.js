@@ -1,4 +1,4 @@
-import { Heading, Box, Text, Input, Button, Textarea } from "@chakra-ui/react";
+import { Heading, Box, Text, Button, Textarea } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import ResizeTextarea from "react-textarea-autosize";
 
