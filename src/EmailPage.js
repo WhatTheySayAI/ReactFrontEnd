@@ -49,9 +49,9 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
     <Flex h='50vh' flexDirection={'column'}>
       <Box bg='none' h='10vmin'/>
       <Container>
-      <Heading  class="headline" size="3xl">
-        Send Email
-      </Heading>
+        <Heading  class="headline" size="3xl">
+          Send Email
+        </Heading>
       </Container>
 
       <Spacer/>
@@ -61,7 +61,6 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
         {error}
         <Input
           isInvalid={error}
-          focusBorderColor='black'
           placeholder='Your email'
           value={userEmail} 
           onChange={(event) => {
@@ -70,7 +69,7 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
           }}
         />
         <Box bg='none' h='20px'/>
-        <Button bg='black' color='white' onClick={sendEmail}>Send</Button>
+        <Button onClick={sendEmail}>Send</Button>
       </Container>
 
       {/* Hidden HTML Form Element to pass into emailjs API */}
