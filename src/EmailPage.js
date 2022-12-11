@@ -49,7 +49,7 @@ export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserE
     <Flex h='50vh' flexDirection={'column'}>
       <Box bg='none' h='10vmin'/>
       <Container>
-        <Heading  class="headline" size="3xl">
+        <Heading  className="headline" size="3xl">
           Send Email
         </Heading>
       </Container>

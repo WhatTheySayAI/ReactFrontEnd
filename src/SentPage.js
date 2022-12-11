@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Sent({userEmail}) {
   return (
     <Container>
-      <Heading  class="headline" size="3xl">
+      <Heading  className="headline" size="3xl">
         Email Sent!
       </Heading>
       <Text>An email has been sent to {userEmail}</Text>

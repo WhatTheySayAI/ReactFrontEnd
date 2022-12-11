@@ -27,7 +27,7 @@ function LessonPage({ run, isRecording, transcript, notes, setNotes }) {
 
   return (
     <Box p={6}>
-      <Heading class="headline" size="3xl">
+      <Heading className="headline" size="3xl">
         Lesson
       </Heading>
       <VStack direction={"column"}>
