@@ -1,5 +1,6 @@
 import {
   Button,
+  IconButton,
   Container as Box,
   VStack,
   HStack,
@@ -12,7 +13,7 @@ import ResizeTextarea from "react-textarea-autosize";
 import { Link } from "react-router-dom";
 import { Icon } from "@chakra-ui/react";
 
-import { MdOutlinePause, MdPlayArrow } from "react-icons/md";
+import { MdOutlinePause, MdFiberManualRecord } from "react-icons/md";
 import { useEffect } from "react";
 
 function LessonPage({ run, isRecording, transcript, notes, setNotes }) {
@@ -60,13 +61,13 @@ function LessonPage({ run, isRecording, transcript, notes, setNotes }) {
 
         
         <HStack align='end'>
-          <Button onClick={run} borderRadius="100">
+          <IconButton onClick={run} borderRadius="100">
             {isRecording ? (
               <Icon as={MdOutlinePause} />
             ) : (
-              <Icon as={MdPlayArrow} />
+              <Icon as={MdFiberManualRecord} color='red' />
             )}
-          </Button>
+          </IconButton>
           <Link to="/summary">
             <Button disabled={isRecording}>Finish your lesson ➡</Button>
           </Link>

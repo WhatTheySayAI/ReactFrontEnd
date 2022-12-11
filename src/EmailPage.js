@@ -5,17 +5,20 @@ import { Heading, Button, Input, FormLabel, Container, Box, Flex, Spacer } from 
 
 // TODO: Make new WhatTheySAI email so it doesn't get sent from "daniel johnson"
 // TODO: CSS
-export const EmailPage = ({transcript, notes, finalThoughts}) => {
+export const EmailPage = ({transcript, notes, finalThoughts, userEmail, setUserEmail}) => {
   const form = useRef();
-  const [userEmail, setUserEmail] = useState("");
   const [error, setError] = useState();
 
   const navigate = useNavigate();
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const serviceId = "service_1ai7mb8";
+    const templateId = "template_h1unmia";
+    const publicKey = "qutAuFklfaC3w-Mer";
     
-    emailjs.sendForm('service_ilx201i', 'template_dcxz4rm', form.current, 'me-WKzMRvMyYtNMuy')
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then((result) => {
           if (result.text === "OK") {
             navigate('/sent');
