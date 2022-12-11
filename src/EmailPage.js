@@ -17,7 +17,7 @@ export const EmailPage = ({transcript, notes, finalThoughts}) => {
     
     emailjs.sendForm('service_ilx201i', 'template_dcxz4rm', form.current, 'me-WKzMRvMyYtNMuy')
       .then((result) => {
-          if (result.text == "OK") {
+          if (result.text === "OK") {
             navigate('/sent');
           }
       }, (error) => {
@@ -46,7 +46,9 @@ export const EmailPage = ({transcript, notes, finalThoughts}) => {
     <Flex h='50vh' flexDirection={'column'}>
       <Box bg='none' h='10vmin'/>
       <Container>
-        <Heading>Send Email</Heading>
+      <Heading  class="headline" size="3xl">
+        Send Email
+      </Heading>
       </Container>
 
       <Spacer/>

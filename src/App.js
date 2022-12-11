@@ -1,5 +1,5 @@
 import './App.css';
-import { EmailPage } from './email';
+import { EmailPage } from './EmailPage';
 
 import HomePage from './HomePage';
 import LessonPage from './LessonPage';
@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import { useTranscriber } from './Transcriber';
 import { useState } from 'react';
-import Sent from './Sent';
+import Sent from './SentPage';
 
 
 function App() {
